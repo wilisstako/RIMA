@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+   <top>
+      <MenuBar fx:id="mainMenu" prefHeight="40.0" prefWidth="640.0" style="-fx-background-color: #8aa0f2; -fx-border-color: #6280ef; -fx-border-width: 4px;" styleClass="menu_bar_background" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu fx:id="display" mnemonicParsing="false" text="Display">
+            <items>
+              <MenuItem fx:id="inventory" mnemonicParsing="false" onAction="#displayInventory" text="Inventory">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="I" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="orders" mnemonicParsing="false" onAction="#displayOrders" text="Orders">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="vendors" mnemonicParsing="false" onAction="#displayVendors" text="Vendors">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="V" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="customers" mnemonicParsing="false" onAction="#displayCustomers" text="Customers">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="C" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="payable" mnemonicParsing="false" onAction="#displayAccountsP" text="Accounts Payable">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="receivable" mnemonicParsing="false" onAction="#displayAccountsR" text="Accounts Receivable">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="R" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+               <accelerator>
+                  <KeyCodeCombination alt="ANY" code="D" control="UP" meta="UP" shift="UP" shortcut="UP" />
+               </accelerator>
+          </Menu>
+            <Menu fx:id="edit" mnemonicParsing="false" onAction="#openEdit" text="Edit">
+               <items>
+                  <Menu mnemonicParsing="false" text="Orders">
+                     <items>
+                        <MenuItem fx:id="editOrders" mnemonicParsing="false" onAction="#editOrder" text="Edit Orders" />
+                        <MenuItem fx:id="addOrder" mnemonicParsing="false" onAction="#addOrder" text="Add Orders" />
+                        <MenuItem mnemonicParsing="false" onAction="#deleteOrder" text="Delete Orders" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Customer">
+                    <items>
+                        <MenuItem fx:id="editcust" mnemonicParsing="false" onAction="#editCustomer" text="Edit Customer" />
+                      <MenuItem fx:id="addCust" mnemonicParsing="false" onAction="#addCustomer" text="Add Customer" />
+                        <MenuItem fx:id="deleteCust" mnemonicParsing="false" onAction="#deleteCustomer" text="Delete Customer" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Vendors">
+                     <items>
+                        <MenuItem fx:id="editVend" mnemonicParsing="false" onAction="#editVendor" text="Edit Vendor" />
+                        <MenuItem fx:id="addVend" mnemonicParsing="false" onAction="#addVend" text="Add Vendor" />
+                        <MenuItem fx:id="deleteVend" mnemonicParsing="false" onAction="#deleteVend" text="Delete Vendor" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Payments">
+                     <items>
+                        <MenuItem fx:id="editPay" mnemonicParsing="false" onAction="#editPay" text="Edit Payments" />
+                        <MenuItem fx:id="addPay" mnemonicParsing="false" onAction="#addPay" text="Add Payments" />
+                        <MenuItem fx:id="deletePay" mnemonicParsing="false" onAction="#deletePay" text="Delete Payments" />
+                     </items>
+                  </Menu>
+               </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Reports">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Inventory" />
+                  <MenuItem mnemonicParsing="false" text="Custom Date" />
+                  <MenuItem mnemonicParsing="false" text="Customers" />
+                  <MenuItem mnemonicParsing="false" text="Orders" />
+                  <MenuItem mnemonicParsing="false" text="Vendors" />
+                  <MenuItem mnemonicParsing="false" text="Sales" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Alerts">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Create" />
+                  <MenuItem mnemonicParsing="false" text="Edit" />
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <TabPane fx:id="t_Pane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="ALL_TABS" BorderPane.alignment="CENTER" />
+   </center>
+   <left>
+      <TreeView fx:id="dbTree" onMouseDragOver="#displayTree" onMousePressed="#displayTableTree" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6e9f7; -fx-border-color: #2a45c1; -fx-border-width: 4px;" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>

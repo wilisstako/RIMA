@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="payablePane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AccountspayableController">
+   <center>
+      <TableView fx:id="payableTable" onSort="#sortPayable">
+        <columns>
+          <TableColumn fx:id="name" text="Company Paid" />
+          <TableColumn fx:id="invoice_no" text="Invoice No." />
+            <TableColumn fx:id="amt_due" text="Amount Due" />
+            <TableColumn fx:id="amt_pd" text="Amount Paid" />
+            <TableColumn fx:id="balance" text="Balance" />
+            <TableColumn fx:id="date" text="Payment Date" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </center>
+</BorderPane>

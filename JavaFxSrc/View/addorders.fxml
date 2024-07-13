@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<DialogPane fx:id="diaPane" headerText="Please Enter Recent Ordered Items" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddordersController">
+   <content>
+      <BorderPane prefHeight="497.0" prefWidth="705.0">
+         <top>
+            <Text fill="#5e2fd6" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Items Ordered (Vendor/Customer)" textAlignment="CENTER" wrappingWidth="333.13671875" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </top>
+         <center>
+            <GridPane hgap="20.0" style="-fx-background-color: #ffffff;" vgap="20.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="257.0" minWidth="10.0" prefWidth="176.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="257.0" minWidth="10.0" prefWidth="186.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="347.0" minWidth="10.0" prefWidth="300.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints />
+                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+                  <RowConstraints vgrow="SOMETIMES" />
+                  <RowConstraints vgrow="SOMETIMES" />
+                  <RowConstraints vgrow="SOMETIMES" />
+                  <RowConstraints vgrow="SOMETIMES" />
+                  <RowConstraints vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="28.0" prefWidth="186.0" text="Item Name" textFill="#5e2fd6" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="194.0" text="Item Description" textFill="#5e2fd6" GridPane.rowIndex="2" />
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="181.0" text="Item Expiration" textFill="#5e2fd6" GridPane.rowIndex="5" />
+                  <Label alignment="CENTER" prefHeight="28.0" prefWidth="178.0" text="Date Ordered" textFill="#5e2fd6" GridPane.rowIndex="6" />
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="176.0" text="Quantity Ordered" textFill="#5e2fd6" GridPane.rowIndex="3" />
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="178.0" text="Ordered from/by" textFill="#5e2fd6" GridPane.rowIndex="4" />
+                  <TextField fx:id="itemName" onAction="#storeItem" prefHeight="30.0" prefWidth="347.0" promptText="Enter Item Name" style="-fx-border-color: #8c8cea; -fx-border-width: 2px;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField fx:id="description" onAction="#storeDesc" prefHeight="25.0" prefWidth="257.0" promptText="Enter Description Only For New Others" style="-fx-border-color: #8c8cea; -fx-border-width: 2px;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <TextField fx:id="quantity" onAction="#storeQty" prefHeight="25.0" prefWidth="244.0" promptText="Enter Quantity Ordered" style="-fx-border-color: #8c8cea; -fx-border-width: 2px;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <TextField fx:id="orderByFrom" layoutX="196.0" layoutY="36.0" onAction="#storeWho" prefHeight="25.0" prefWidth="273.0" promptText="For Customers (first,last)" style="-fx-border-color: #8c8cea; -fx-border-width: 2px;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <DatePicker fx:id="datePicker" onAction="#convertDate" prefHeight="26.0" prefWidth="197.0" promptText="Enter Date" showWeekNumbers="true" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                  <DatePicker fx:id="expDate" layoutX="196.0" layoutY="220.0" onAction="#convertExpDate" prefHeight="26.0" prefWidth="197.0" promptText="Enter Date" showWeekNumbers="true" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+               </children>
+            </GridPane>
+         </center>
+         <left>
+            <VBox prefHeight="239.0" prefWidth="144.0" BorderPane.alignment="CENTER">
+               <children>
+                  <CheckBox fx:id="newOrder" mnemonicParsing="false" onKeyPressed="#moveNew" text="New Order">
+                     <padding>
+                        <Insets top="100.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox fx:id="vendor" mnemonicParsing="false" onMouseClicked="#setVendor" prefHeight="68.0" prefWidth="173.0" text="Vendor" />
+                  <CheckBox fx:id="customer" mnemonicParsing="false" onMouseClicked="#setCustomer" prefHeight="26.0" prefWidth="122.0" text="Customer" />
+               </children>
+            </VBox>
+         </left>
+         <bottom>
+            <Button fx:id="addOrder" alignment="CENTER" mnemonicParsing="false" onAction="#submitOrder" prefHeight="32.0" prefWidth="109.0" text="Add Order" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </content>
+</DialogPane>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="orderPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.OrdersController">
+   <center>
+      <TableView fx:id="orderTable" onSort="#sortOrders">
+        <columns>
+          <TableColumn fx:id="type" text="Type" />
+          <TableColumn fx:id="name" text="Name" />
+            <TableColumn fx:id="poc" text="POC" />
+            <TableColumn fx:id="date" text="Date" />
+            <TableColumn fx:id="item" text="Item Ordered" />
+            <TableColumn fx:id="amt_ordered" text="Amount Ordered" />
+            <TableColumn fx:id="total_billed" text="Total Billed" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </center>
+</BorderPane>
